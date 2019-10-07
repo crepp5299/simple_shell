@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/hdh_new.dir/main.c.o CMakeFiles/hdh_new.dir/lib.c.o  -o hdh_new 

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/crepp/CLionProjects/hdh_new/lib.h
+
+/home/crepp/CLionProjects/hdh_new/main.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/wait.h
+-
+lib.h
+/home/crepp/CLionProjects/hdh_new/lib.h
+sys/stat.h
+-
+fcntl.h
+-
+
