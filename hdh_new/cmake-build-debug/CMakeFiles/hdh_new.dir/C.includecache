@@ -21,10 +21,10 @@ sys/types.h
 -
 sys/wait.h
 -
+fcntl.h
+-
 lib.h
 /home/crepp/CLionProjects/hdh_new/lib.h
 sys/stat.h
--
-fcntl.h
 -
 

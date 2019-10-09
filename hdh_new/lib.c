@@ -10,7 +10,7 @@
 #include <sys/wait.h>
 #include "lib.h"
 
-void readInput(char* cmd, char** args, int* flag, char** getLast, int* run, char** fileName){
+void readInput(char* cmd, char** args, int* flag, char** getLast, int* run, char** fileName, char** cmd2){
     fflush(stdin);
     int length;
     char* temp = malloc(sizeof(char) * MAX_LINE);
@@ -30,7 +30,7 @@ void readInput(char* cmd, char** args, int* flag, char** getLast, int* run, char
             *getLast = "&";
             temp[length - 2] = '\0';
         }
-        else if(temp[length - 2] == '!' && temp[length - 3] == '!'){
+        else if(strcmp(temp,"!!") == 0){
             *getLast = "!!";
             if(args[0] == NULL)
             {
@@ -45,6 +45,7 @@ void readInput(char* cmd, char** args, int* flag, char** getLast, int* run, char
         }
         strcpy(cmd,temp);
         int i = 0;
+        int j = 0;
         char*p = strtok(cmd," ");
         while(p!=NULL){
             if(strcmp(p,">") == 0)
@@ -57,13 +58,22 @@ void readInput(char* cmd, char** args, int* flag, char** getLast, int* run, char
                 *run = 3;
                 break;
             }
+            if(strcmp(p,"|") == 0){
+                *run = 4;
+                break;
+            }
             args[i++] = p;
             p = strtok(NULL," ");
         }
         if(*run > 1){
             p = strtok(NULL," ");
-            if(p != NULL)
-                *fileName = p;
+            while(p != NULL) {
+                if (*run < 4)
+                    *fileName = p;
+                else
+                    cmd2[j++] = p;
+                p = strtok(NULL," ");
+            }
         }
         free(temp);
     }

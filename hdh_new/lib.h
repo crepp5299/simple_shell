@@ -7,6 +7,6 @@
 
 #define MAX_LINE 80 /* The maximum length command */
 
-void readInput(char* cmd, char** args, int* flag,char** getLast, int* run, char** fileName);
+void readInput(char* cmd, char** args, int* flag,char** getLast, int* run, char** fileName, char** cmd2);
 
 #endif //UNTITLED_LIB_H
